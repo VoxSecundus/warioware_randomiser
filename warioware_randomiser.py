@@ -34,7 +34,8 @@ def main(src, dest, count):
   unzip_dir(sav_group, sav_path)
 
 def glob_files_randomly(src, count):
-  return random.sample(list(os.listdir(src)), count)
+  miozips = [_ for _ in os.listdir(src) if _.endswith('.miozip')]
+  return random.sample(miozips, count)
 
 def copy_files(src, filenames, dest):
   os.makedirs(dest)
@@ -54,7 +55,7 @@ def change_extension_dir(directory):
       )
       print("File %s renamed to %s" % (fname, stripped))
 
-def unzip_dir(group, path)
+def unzip_dir(group, path):
   for fname in group:
     if fname.endswith('.zip'):
       abs_path = os.path.join(path, fname)
